@@ -9,7 +9,7 @@ setup(
     setup_requires=["setuptools_scm"],
     packages=["maco.model"],
     include_package_data=True,
-    install_requires=["pydantic==2"],
+    install_requires=["pydantic>=2.0.0"],
     name="maco-model",
     description="",
     author="",
