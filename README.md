@@ -42,7 +42,7 @@ output.binaries.append(
     output.Binary(
         data=b"sam I am",
         datatype=output.Binary.TypeEnum.config,
-        encryption=output.Binary.EncryptionC(
+        encryption=output.Binary.Encryption(
             algorithm="rot26",
             mode="block",
         ),

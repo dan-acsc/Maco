@@ -215,11 +215,10 @@ class ExtractorModel(ForbidModel):
         # e.g. filename, extension, relationship label
         other: Dict[str, Any] = {}
 
-        # convenience for ret.encryption.append(ret.EncryptionC(*properties))
-        # Name of staticmethod must be different (case-insensitive) to any parameters
-        @staticmethod
-        def EncryptionC(**kwargs: Unpack[Encryption]) -> Encryption:
-            return Encryption(**kwargs)
+        # convenience for ret.encryption.append(ret.Encryption(*properties))
+        # Define as class as only way to allow for this to be accessed and not have pydantic try to parse it.
+        class Encryption(Encryption):
+            pass
 
         encryption: Union[
             List[Encryption], Encryption, None
@@ -343,11 +342,10 @@ class ExtractorModel(ForbidModel):
     #
     # complex configuration properties
     #
-    # convenience for ret.encryption.append(ret.EncryptionC(*properties))
-    # Name of staticmethod must be different (case-insensitive) to any parameters
-    @staticmethod
-    def EncryptionC(**kwargs: Unpack[Encryption]) -> Encryption:
-        return Encryption(**kwargs)
+    # convenience for ret.encryption.append(ret.Encryption(*properties))
+    # Define as class as only way to allow for this to be accessed and not have pydantic try to parse it.
+    class Encryption(Encryption):
+        pass
 
     encryption: List[Encryption] = []
 
