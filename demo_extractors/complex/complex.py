@@ -69,12 +69,12 @@ class Complex(extractor.Extractor):
             )
         )
 
-        tmp.encryption.append(tmp.Encryption(algorithm="sha256"))
+        tmp.encryption.append(tmp.EncryptionC(algorithm="sha256"))
         tmp.binaries.append(
             tmp.Binary(
                 data=b"some data",
                 datatype=tmp.Binary.TypeEnum.payload,
-                encryption=tmp.Binary.Encryption(algorithm="something"),
+                encryption=tmp.Binary.EncryptionC(algorithm="something"),
             )
         )
         return tmp
