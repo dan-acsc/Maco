@@ -76,6 +76,7 @@ class Collector:
         create_venv: bool = False,
         enable_venv_cache: bool = False,
         skip_install: bool = False,
+        python_version: str = f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}",
     ):
         """Discover and load extractors from file system.
 
@@ -151,6 +152,7 @@ class Collector:
                     "create_venv": create_venv and os.path.isdir(path_extractors),
                     "skip_install": skip_install,
                     "enable_venv_cache": enable_venv_cache,
+                    "python_version": python_version,
                 },
             )
             p.start()
